@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>El Juicio del Pinchaina</title>
+<meta name="theme-color" content="#1a0f0f">
+<meta property="og:title" content="⚔️ El Juicio del Pinchaina">
+<meta property="og:description" content="Raúl busca la aprobación de sus amigos para casarse. Solo la sabiduría puede salvarle.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#faf6ef;
+  --bg-soft:#f2ebdd;
+  --bg-card:#ffffff;
+  --ink:#1f1612;
+  --ink-soft:#4a3a30;
+  --ink-muted:#7a6858;
+  --gold:#8b5e00;
+  --gold-bright:#b07800;
+  --gold-pale:#fdf2d0;
+  --gold-border:#d4a853;
+  --wine:#6b1a1a;
+  --wine-pale:#fbe9e9;
+  --forest:#1e5a2e;
+  --forest-pale:#e4f1e7;
+  --border:#e0d2b8;
+  --border-strong:#b8a078;
+  --shadow-sm:0 1px 3px rgba(60,30,0,.06);
+  --shadow-md:0 4px 14px rgba(60,30,0,.08);
+  --shadow-lg:0 12px 32px rgba(60,30,0,.12);
+  --r-sm:10px;
+  --r-md:14px;
+  --r-lg:20px;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --display:'Cinzel',serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+html,body{background:var(--bg);color:var(--ink);font-family:var(--sans);min-height:100vh;font-size:16px;line-height:1.5}
+body{background-image:radial-gradient(circle at 15% 10%,rgba(212,168,83,.08),transparent 40%),radial-gradient(circle at 85% 90%,rgba(107,26,26,.05),transparent 40%);padding:20px 16px 60px}
+.app{max-width:600px;margin:0 auto}
+.hidden{display:none!important}
+
+.hero{background:linear-gradient(160deg,#1f1612 0%,#3a2519 100%);color:#faf6ef;border-radius:var(--r-lg);padding:40px 28px;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.hero::before{content:"";position:absolute;top:-80px;right:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(212,168,83,.25),transparent 70%);pointer-events:none}
+.hero::after{content:"";position:absolute;bottom:-60px;left:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(107,26,26,.2),transparent 70%);pointer-events:none}
+.hero-tag{display:inline-block;padding:6px 14px;border-radius:999px;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:rgba(253,242,208,.12);color:#fde68a;border:1px solid rgba(253,242,208,.25);margin-bottom:28px;position:relative;z-index:1}
+.hero-ornament{display:flex;align-items:center;gap:14px;color:#d4a853;font-size:1.3rem;margin-bottom:18px;position:relative;z-index:1}
+.hero-ornament::before,.hero-ornament::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(212,168,83,.4),transparent)}
+.hero-title{font-family:var(--display);font-size:clamp(2.1rem,7.5vw,3.2rem);font-weight:900;line-height:1;color:#fde68a;text-align:center;letter-spacing:.02em;text-transform:uppercase;margin-bottom:14px;position:relative;z-index:1;text-shadow:0 2px 10px rgba(0,0,0,.4)}
+.hero-sub{font-family:var(--serif);font-size:1.15rem;font-style:italic;text-align:center;color:#e8d5b7;margin-bottom:32px;line-height:1.55;position:relative;z-index:1}
+.hero-lore{font-family:var(--serif);font-size:1.08rem;line-height:1.8;color:#f0e1c8;background:rgba(0,0,0,.2);border-radius:var(--r-md);padding:24px 22px;margin-bottom:32px;border-left:3px solid #d4a853;position:relative;z-index:1}
+.hero-lore p{margin-bottom:14px}
+.hero-lore p:last-child{margin-bottom:0}
+.hero-lore .accent{color:#fde68a;font-weight:600;font-style:normal}
+.hero-lore .emph{color:#fcd9a0;font-weight:600}
+.hero-lore .center{text-align:center;font-size:1.2rem;margin:18px 0}
+.hero-actions{display:flex;flex-direction:column;gap:12px;position:relative;z-index:1}
+
+.btn{appearance:none;border:none;font-family:var(--sans);font-weight:600;font-size:.95rem;padding:16px 20px;border-radius:var(--r-md);cursor:pointer;touch-action:manipulation;width:100%;min-height:54px;transition:all .15s ease;letter-spacing:.01em;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn:active{transform:scale(.97)}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:linear-gradient(180deg,#d4a853,#b07800);color:#1f1612;box-shadow:0 4px 0 #8b5e00,0 6px 14px rgba(139,94,0,.3);font-weight:700}
+.btn-primary:active{box-shadow:0 2px 0 #8b5e00,0 3px 6px rgba(139,94,0,.3);transform:translateY(2px)}
+.btn-dark{background:#1f1612;color:#faf6ef;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+.btn-dark:hover{background:#2a1e17}
+.btn-success{background:linear-gradient(180deg,#2d7a3d,#1e5a2e);color:#fff;box-shadow:0 3px 0 #143d1f,0 5px 10px rgba(30,90,46,.25)}
+.btn-success:active{box-shadow:0 1px 0 #143d1f,0 2px 4px rgba(30,90,46,.25);transform:translateY(2px)}
+.btn-danger{background:linear-gradient(180deg,#8b2929,#6b1a1a);color:#fff;box-shadow:0 3px 0 #4a0f0f,0 5px 10px rgba(107,26,26,.25)}
+.btn-danger:active{box-shadow:0 1px 0 #4a0f0f,0 2px 4px rgba(107,26,26,.25);transform:translateY(2px)}
+.btn-outline{background:transparent;color:var(--ink);border:1.5px solid var(--border-strong)}
+.btn-outline:hover{background:var(--bg-soft)}
+.btn-sel-success{background:linear-gradient(180deg,#2d7a3d,#1e5a2e);color:#fff;box-shadow:0 0 0 4px rgba(30,90,46,.25),0 3px 8px rgba(30,90,46,.2);transform:scale(1.03)}
+.btn-sel-danger{background:linear-gradient(180deg,#8b2929,#6b1a1a);color:#fff;box-shadow:0 0 0 4px rgba(107,26,26,.2),0 3px 8px rgba(107,26,26,.2);transform:scale(1.03)}
+.btn-dimmed{opacity:.3;transform:scale(.97)}
+.btn-comp{background:var(--bg-card);color:var(--ink);border:1.5px solid var(--border);font-weight:600;font-size:1rem;min-height:56px}
+.btn-comp:hover{background:var(--gold-pale);border-color:var(--gold-border)}
+.btn-comp.selected{background:var(--gold-pale);color:var(--gold);border:2px solid var(--gold-bright);box-shadow:0 0 0 3px rgba(212,168,83,.2)}
+.btn-save{background:linear-gradient(180deg,#4a6a8b,#2a4a6b);color:#fff;box-shadow:0 3px 0 #1a3a5b,0 5px 10px rgba(42,74,107,.25)}
+.btn-save:active{box-shadow:0 1px 0 #1a3a5b,0 2px 4px rgba(42,74,107,.25);transform:translateY(2px)}
+
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px;margin-top:16px;box-shadow:var(--shadow-md)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.stat{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-md);padding:14px 12px;text-align:center;box-shadow:var(--shadow-sm)}
+.stat-label{font-size:.7rem;font-weight:600;color:var(--ink-muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.stat-value{font-family:var(--display);font-size:1.5rem;font-weight:700;color:var(--gold);line-height:1}
+
+.section-title{font-family:var(--display);font-size:1.15rem;font-weight:700;color:var(--ink);letter-spacing:.03em;text-transform:uppercase}
+.section-sub{font-size:.92rem;color:var(--ink-muted);line-height:1.5}
+.label{font-size:.72rem;font-weight:700;color:var(--ink-muted);text-transform:uppercase;letter-spacing:.1em}
+.question-text{font-family:var(--serif);font-size:1.3rem;line-height:1.5;color:var(--ink);padding:6px 0;font-style:italic}
+
+.pill{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:1.5px solid;white-space:nowrap}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.pill-t4{background:var(--forest-pale);color:var(--forest);border-color:#6da47a}
+.pill-t3{background:#e0ecf7;color:#1e4a8a;border-color:#6a90c0}
+.pill-t2{background:#ece0f7;color:#4a1e8a;border-color:#906ac0}
+.pill-t1{background:var(--wine-pale);color:var(--wine);border-color:#a84040}
+
+.answer-box{background:var(--forest-pale);border:1.5px solid #6da47a;border-radius:var(--r-sm);padding:14px 16px;color:var(--forest);font-weight:600;font-size:.95rem;display:flex;align-items:center;gap:10px}
+.answer-box::before{content:"✓";font-size:1.1rem;font-weight:900;background:var(--forest);color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.notice{background:var(--gold-pale);border:1.5px solid var(--gold-border);border-radius:var(--r-sm);color:var(--ink);padding:14px 16px;font-size:.93rem;line-height:1.55}
+.notice b{color:var(--gold);font-weight:700}
+
+.steps{display:flex;align-items:center;gap:10px;background:var(--bg-soft);border:1px solid var(--border);border-radius:var(--r-md);padding:12px 14px;font-size:.88rem;color:var(--ink-soft);font-weight:500}
+.steps-arrow{color:var(--border-strong);font-weight:700}
+.dot{width:26px;height:26px;border-radius:50%;border:2px solid var(--border-strong);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;color:var(--ink-muted);flex-shrink:0;transition:all .2s;background:var(--bg-card)}
+.dot-done{background:var(--forest);border-color:var(--forest);color:#fff}
+.dot-active{background:var(--gold-bright);border-color:var(--gold);color:#fff;box-shadow:0 0 0 4px rgba(212,168,83,.25)}
+
+.result{background:linear-gradient(180deg,#fff 0%,var(--bg-soft) 100%);border:1.5px solid var(--gold-border);border-radius:var(--r-lg);padding:24px;margin-top:16px;box-shadow:var(--shadow-md);animation:slideUp .4s ease}
+.result-title{font-family:var(--display);font-size:1.3rem;font-weight:700;color:var(--gold);margin-bottom:10px;letter-spacing:.02em}
+.result p{color:var(--ink-soft);font-size:1rem;line-height:1.6;margin-bottom:14px}
+.result p:last-child{margin-bottom:0}
+
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:20px 0}
+.ornament-divider{text-align:center;color:var(--gold-border);font-size:.85rem;letter-spacing:.5em;margin:16px 0 20px}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stack{display:flex;flex-direction:column;gap:14px}
+.stack-sm{display:flex;flex-direction:column;gap:8px}
+.stack-lg{display:flex;flex-direction:column;gap:20px}
+
+.toast-wrap{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);z-index:100;transition:transform .3s cubic-bezier(.34,1.56,.64,1);pointer-events:none;max-width:90vw}
+.toast-wrap.show{transform:translateX(-50%) translateY(0)}
+.toast{background:#1f1612;color:#fde68a;padding:14px 22px;border-radius:999px;font-size:.9rem;font-weight:600;border:1.5px solid var(--gold-border);box-shadow:0 8px 24px rgba(0,0,0,.25);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+
+@keyframes slideUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.fade-in{animation:fadeIn .4s ease}
+
+.game-header{text-align:center;padding:4px 0 8px}
+.game-header-title{font-family:var(--display);font-size:1.3rem;font-weight:700;color:var(--ink);letter-spacing:.04em}
+.game-header-sub{font-size:.8rem;color:var(--ink-muted);margin-top:4px;letter-spacing:.05em}
+
+.footer-actions{margin-top:20px;padding-top:20px;border-top:1px solid var(--border)}
+
+.save-indicator{display:inline-block;font-size:.72rem;color:var(--forest);font-weight:700;margin-left:8px;opacity:0;transition:opacity .3s}
+.save-indicator.show{opacity:1}
+
+.saved-badge{position:fixed;top:16px;right:16px;background:var(--forest);color:#fff;padding:6px 12px;border-radius:999px;font-size:.75rem;font-weight:700;box-shadow:var(--shadow-md);z-index:50;display:none}
+.saved-badge.show{display:block;animation:fadeIn .4s ease}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ======= INTRO ======= -->
+  <section id="s-intro" class="hero fade-in">
+    <div style="text-align:center;position:relative;z-index:1">
+      <div class="hero-tag">Despedida de soltero · Tribunal oscuro</div>
+    </div>
+    <div class="hero-ornament"><span>⚔</span></div>
+    <h1 class="hero-title">El Juicio<br>del Pinchaina</h1>
+    <div class="hero-ornament" style="margin-top:18px;margin-bottom:0"><span>†</span></div>
+    <p class="hero-sub">"La última noche de libertad antes de que Raúl entregue su alma al matrimonio civilmente aceptado."</p>
+
+    <div class="hero-lore">
+      <p>En una noche donde la <span class="accent">dignidad</span> se sirve tibia y la cerveza fluye con vocación de castigo, <span class="emph">Raúl, El Pinchaina</span>, ha tomado la decisión más temeraria de su existencia:</p>
+      <p class="center"><span class="accent">casarse.</span></p>
+      <p>Pero nadie puede dar ese paso sin superar antes el juicio de sus propios amigos cómplices: un grupo de jueces miserables, sabios a ratos y crueles por puro entretenimiento.</p>
+      <p>Si acierta, ganará tiempo. Si falla, caerá una prueba, una penalización o, peor aún, tendrá que arrastrar a un cómplice que no le quiera ayudar lo más mínimo.</p>
+      <p class="center"><span class="accent">Que empiece el juicio.</span></p>
+    </div>
+
+    <div class="hero-actions">
+      <button class="btn btn-primary" onclick="pjStart()">⚔️ Comenzar el juicio</button>
+      <button id="btn-resume" class="btn btn-save hidden" onclick="pjResume()">▶️ Continuar partida guardada</button>
+      <button class="btn btn-dark" onclick="pjShare()">📤 Compartir enlace</button>
+    </div>
+  </section>
+
+  <!-- ======= GAME ======= -->
+  <section id="s-game" class="hidden stack-lg fade-in">
+
+    <div class="game-header">
+      <div class="game-header-title">⚔ El Juicio ⚔</div>
+      <div class="game-header-sub">Tribunal en sesión<span class="save-indicator" id="save-indicator">· guardado ✓</span></div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-label">Ronda</div><div class="stat-value" id="st-round">1</div></div>
+      <div class="stat"><div class="stat-label">Racha</div><div class="stat-value" id="st-streak">0</div></div>
+      <div class="stat"><div class="stat-label">Dificultad</div><div class="stat-value" id="st-tier">Tier 4</div></div>
+      <div class="stat"><div class="stat-label">Penalización</div><div class="stat-value" id="st-pen" style="font-size:1rem">1 sorbo</div></div>
+    </div>
+
+    <div class="card stack">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+        <div>
+          <div class="label" style="margin-bottom:4px">Pregunta</div>
+          <div class="section-title">Para Raúl</div>
+        </div>
+        <span class="pill pill-t4" id="tier-badge">Tier 4</span>
+      </div>
+
+      <div class="question-text" id="q-text">Pulsa "Sacar pregunta" para comenzar el juicio.</div>
+      <div class="answer-box hidden" id="q-answer"></div>
+
+      <div class="stack-sm">
+        <button class="btn btn-primary" onclick="pjDraw()">🎲 Sacar pregunta</button>
+        <button class="btn btn-outline" id="btn-ans" onclick="pjToggleAns()">👁 Mostrar respuesta</button>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="label">¿Ha acertado Raúl?</div>
+      <div class="grid-2">
+        <button class="btn btn-success" onclick="pjCorrect()">✅ Acierta</button>
+        <button class="btn btn-danger" onclick="pjFail()">❌ Falla</button>
+      </div>
+    </div>
+
+    <div class="card stack hidden" id="fail-box">
+      <div>
+        <div class="label" style="color:#8b2929;margin-bottom:4px">Tribunal · Sentencia</div>
+        <div class="section-title">💀 Raúl ha fallado</div>
+      </div>
+      <p class="section-sub">Elige al cómplice que caerá con él. Puedes invocar al destino o elegir tú.</p>
+
+      <button class="btn btn-primary" onclick="pjRandComp()">🎰 Cómplice aleatorio</button>
+
+      <div class="ornament-divider">· · ·</div>
+
+      <div class="label">O elige manualmente</div>
+      <div class="grid-2" id="comp-grid"></div>
+
+      <div class="notice hidden" id="comp-notice"></div>
+
+      <div class="stack hidden" id="challenge-box">
+        <div class="divider"></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+          <div class="section-title">⚠️ Prueba asignada</div>
+          <span class="pill pill-t4" id="ch-tier">Tier 4</span>
+        </div>
+        <div class="question-text" id="ch-text"></div>
+      </div>
+
+      <div class="stack hidden" id="dec-box">
+        <div class="divider"></div>
+        <div class="section-title">Decisiones</div>
+
+        <div class="steps">
+          <div class="dot" id="d1">1</div><span>Raúl decide</span>
+          <span class="steps-arrow">→</span>
+          <div class="dot" id="d2">2</div><span>Cómplice decide</span>
+        </div>
+
+        <div>
+          <div class="label" style="margin-bottom:8px">¿Acepta Raúl la prueba?</div>
+          <div class="grid-2">
+            <button class="btn btn-success" id="br-y" onclick="pjDec('r','y')">✅ Raúl SÍ</button>
+            <button class="btn btn-danger" id="br-n" onclick="pjDec('r','n')">❌ Raúl NO</button>
+          </div>
+        </div>
+
+        <div>
+          <div class="label" id="comp-label" style="margin-bottom:8px;opacity:.45">¿Acepta el cómplice la prueba?</div>
+          <div class="grid-2">
+            <button class="btn btn-success" id="bc-y" onclick="pjDec('c','y')">✅ Cómplice SÍ</button>
+            <button class="btn btn-danger" id="bc-n" onclick="pjDec('c','n')">❌ Cómplice NO</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card stack hidden" id="personal-box">
+      <div>
+        <div class="label" style="margin-bottom:4px">Desafío final</div>
+        <div class="section-title">🧠 Pregunta personal</div>
+      </div>
+      <p class="section-sub">El cómplice debe demostrar cuánto conoce a Raúl.</p>
+      <div class="question-text" id="p-q"></div>
+      <div class="answer-box hidden" id="p-ans"></div>
+      <button class="btn btn-outline" id="btn-pans" onclick="pjTogglePAns()">👁 Mostrar respuesta</button>
+
+      <div class="divider"></div>
+
+      <div class="label">¿Acierta el cómplice?</div>
+      <div class="grid-2">
+        <button class="btn btn-success" onclick="pjPersonal(true)">✅ Acierta</button>
+        <button class="btn btn-danger" onclick="pjPersonal(false)">❌ Falla</button>
+      </div>
+    </div>
+
+    <div class="result hidden" id="result-box"></div>
+
+    <div class="stack-sm footer-actions">
+      <button class="btn btn-primary hidden" id="btn-next" onclick="pjNext()">▶️ Siguiente ronda</button>
+      <button class="btn btn-save" onclick="pjSave(true)">💾 Guardar partida</button>
+      <div class="grid-2">
+        <button class="btn btn-outline" onclick="pjReset()">🔄 Reiniciar</button>
+        <button class="btn btn-dark" onclick="pjShare()">📤 Compartir</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="toast-wrap" id="toast-wrap">
+  <div class="toast" id="toast"></div>
+</div>
+
+<div class="saved-badge" id="saved-badge">💾 Guardado</div>
+
+<script>
+(function(){
+const PLAYERS=["Edu","Álvaro","Danta","Koko","Iñigo","Dro"];
+const SAVE_KEY="pinchaina_save_v3";
+
+// Preguntas generales — tier 1 (más difícil) a tier 4 (más fácil)
+const GQ=[
+  // TIER 4 - Muy fáciles (trivial)
+  {t:4,q:"¿Cuál es la capital de Canadá?",a:"Ottawa"},
+  {t:4,q:"¿Qué país tiene más fronteras terrestres en Europa?",a:"Alemania"},
+  {t:4,q:"¿Cómo se llama la ciudad principal de Bloodborne?",a:"Yharnam"},
+  {t:4,q:"¿Qué superhéroe es conocido como El Caballero Oscuro?",a:"Batman"},
+  {t:4,q:"¿Cuál es el río más largo de Europa?",a:"Volga"},
+  {t:4,q:"¿Cuál es la capital de Australia?",a:"Canberra"},
+  {t:4,q:"¿Qué país tiene la mayor cantidad de islas del mundo?",a:"Suecia"},
+  {t:4,q:"¿Qué saga tiene como protagonista a un asesino con hoja oculta?",a:"Assassin's Creed"},
+  {t:4,q:"¿Qué país europeo tiene más volcanes activos?",a:"Italia"},
+  {t:4,q:"¿Qué personaje dice 'Yo soy inevitable'?",a:"Thanos"},
+  {t:4,q:"¿Qué personaje de Mario es un dinosaurio?",a:"Yoshi"},
+  {t:4,q:"¿Qué país tiene más husos horarios del mundo?",a:"Francia"},
+  {t:4,q:"¿Cuál es el planeta más grande del sistema solar?",a:"Júpiter"},
+  {t:4,q:"¿Cuántos continentes hay?",a:"Siete"},
+  {t:4,q:"¿Qué animal es el rey de la selva?",a:"El león"},
+  {t:4,q:"¿De qué color es la camiseta del Barça?",a:"Azulgrana"},
+  {t:4,q:"¿Qué moneda se usa en Japón?",a:"Yen"},
+  {t:4,q:"¿Quién pintó La Mona Lisa?",a:"Leonardo da Vinci"},
+  {t:4,q:"¿Cuál es el deporte más popular del mundo?",a:"Fútbol"},
+
+  // TIER 3 - Medias (trivial clásico)
+  {t:3,q:"¿Qué tratado puso fin a la Guerra de Sucesión Española?",a:"Tratado de Utrecht"},
+  {t:3,q:"¿Cómo se llama el mundo donde ocurre Elden Ring?",a:"Las Tierras Intermedias"},
+  {t:3,q:"¿Qué proyecto creó a Solid Snake?",a:"Les Enfants Terribles"},
+  {t:3,q:"¿Qué película inició el UCM?",a:"Iron Man (2008)"},
+  {t:3,q:"¿Quién lideró la primera vuelta al mundo aunque murió antes de completarla?",a:"Fernando de Magallanes"},
+  {t:3,q:"¿Qué militar lideró el pronunciamiento de 1820?",a:"Rafael del Riego"},
+  {t:3,q:"¿Qué rey unificó Castilla y Aragón junto a Isabel?",a:"Fernando II de Aragón"},
+  {t:3,q:"¿Cómo se llama el caballo de Geralt?",a:"Sardinilla"},
+  {t:3,q:"¿Qué metal ficticio usa Wolverine?",a:"Adamantium"},
+  {t:3,q:"¿En qué año comenzó la Segunda Guerra Mundial?",a:"1939"},
+  {t:3,q:"¿Cómo se llama el sistema de transporte en Death Stranding?",a:"Red Quiral"},
+  {t:3,q:"¿Qué imperio dominaba México antes de la llegada española?",a:"Imperio Azteca"},
+  {t:3,q:"¿En qué año cayó el Muro de Berlín?",a:"1989"},
+  {t:3,q:"¿Cuántos huesos tiene el cuerpo humano adulto?",a:"206"},
+  {t:3,q:"¿En qué país se inventó el ajedrez?",a:"India"},
+  {t:3,q:"¿Qué escritor creó a Sherlock Holmes?",a:"Arthur Conan Doyle"},
+  {t:3,q:"¿Cuál es el río más largo del mundo?",a:"Amazonas (o Nilo según fuentes)"},
+  {t:3,q:"¿Qué elemento químico tiene el símbolo 'Fe'?",a:"Hierro"},
+  {t:3,q:"¿Quién escribió 'Cien años de soledad'?",a:"Gabriel García Márquez"},
+  {t:3,q:"¿En qué año llegó el hombre a la Luna?",a:"1969"},
+  {t:3,q:"¿Cuál es el océano más grande del mundo?",a:"Pacífico"},
+  {t:3,q:"¿Qué país ganó el Mundial de fútbol de 2010?",a:"España"},
+  {t:3,q:"¿Quién compuso la Novena Sinfonía?",a:"Beethoven"},
+  {t:3,q:"¿En qué año se descubrió América?",a:"1492"},
+  {t:3,q:"¿Cuál es la montaña más alta del mundo?",a:"Everest"},
+  {t:3,q:"¿Qué país tiene forma de bota?",a:"Italia"},
+  {t:3,q:"¿En qué ciudad está la Torre Eiffel?",a:"París"},
+  {t:3,q:"¿Qué planeta es conocido como 'el planeta rojo'?",a:"Marte"},
+  {t:3,q:"¿Cuántos jugadores hay en un equipo de fútbol en el campo?",a:"Once"},
+  {t:3,q:"¿Qué mar baña las costas de Israel y Egipto por el sur?",a:"Mar Rojo"},
+  {t:3,q:"¿Qué artista pintó 'La noche estrellada'?",a:"Van Gogh"},
+  {t:3,q:"¿Cuál es el animal terrestre más rápido?",a:"Guepardo"},
+  {t:3,q:"¿En qué continente está Egipto?",a:"África"},
+  {t:3,q:"¿Qué país regaló la Estatua de la Libertad a EE.UU.?",a:"Francia"},
+  {t:3,q:"¿Quién pintó la Capilla Sixtina?",a:"Miguel Ángel"},
+  {t:3,q:"¿Cuál es el idioma más hablado del mundo como lengua materna?",a:"Chino mandarín"},
+  {t:3,q:"¿En qué país está Machu Picchu?",a:"Perú"},
+  {t:3,q:"¿Qué científico propuso la teoría de la relatividad?",a:"Albert Einstein"},
+  {t:3,q:"¿Cuántas caras tiene un cubo?",a:"Seis"},
+  {t:3,q:"¿Quién dirigió 'El Padrino'?",a:"Francis Ford Coppola"},
+  {t:3,q:"¿En qué año empezó la Guerra Civil Española?",a:"1936"},
+  {t:3,q:"¿Qué banda grabó 'Bohemian Rhapsody'?",a:"Queen"},
+  {t:3,q:"¿Cómo se llama el padre de Luke Skywalker?",a:"Anakin Skywalker (Darth Vader)"},
+  {t:3,q:"¿Qué es el Ragnarok en la mitología nórdica?",a:"El fin del mundo / crepúsculo de los dioses"},
+
+  // TIER 2 - Difíciles
+  {t:2,q:"¿En qué año terminó la Guerra Civil Española?",a:"1939"},
+  {t:2,q:"¿Qué ciudad fue capital del Imperio Bizantino?",a:"Constantinopla"},
+  {t:2,q:"¿Qué actor interpreta a Batman en The Dark Knight?",a:"Christian Bale"},
+  {t:2,q:"¿Qué tratado dividió América entre España y Portugal?",a:"Tratado de Tordesillas"},
+  {t:2,q:"¿Qué jefe final representa el ciclo en Dark Souls III?",a:"Soul of Cinder"},
+  {t:2,q:"¿Qué país colonizó Brasil?",a:"Portugal"},
+  {t:2,q:"¿Qué videojuego creó Kojima tras salir de Konami?",a:"Death Stranding"},
+  {t:2,q:"¿Qué cordillera atraviesa América del Sur?",a:"Los Andes"},
+  {t:2,q:"¿En qué fecha se proclamó la Segunda República Española?",a:"14 de abril de 1931"},
+  {t:2,q:"¿Qué rey expulsó a los jesuitas?",a:"Carlos III"},
+  {t:2,q:"¿Quién fue Fernán González?",a:"Primer conde independiente de Castilla"},
+  {t:2,q:"¿Cuál es el elemento más abundante en el universo?",a:"Hidrógeno"},
+  {t:2,q:"¿Qué imperio construyó el Coliseo de Roma?",a:"Imperio Romano"},
+  {t:2,q:"¿Qué batalla marcó el inicio de la Reconquista?",a:"Batalla de Covadonga"},
+  {t:2,q:"¿Cuántos años tiene un siglo?",a:"Cien"},
+
+  // TIER 1 - Brutalmente difíciles
+  {t:1,q:"¿En qué fecha se firmaron los Decretos de Nueva Planta?",a:"29 de junio de 1707"},
+  {t:1,q:"¿En qué fecha se promulgaron las Leyes de Toro?",a:"26 de noviembre de 1505"},
+  {t:1,q:"¿Qué jurista fue clave en la Constitución de 1978?",a:"Gabriel Cisneros"},
+  {t:1,q:"¿En qué año comenzó la Guerra de Sucesión Española?",a:"1701"},
+  {t:1,q:"¿Qué actor interpreta a Thanos?",a:"Josh Brolin"},
+  {t:1,q:"¿Qué ciudad destruyó el Vesubio en el 79 d.C.?",a:"Pompeya"},
+  {t:1,q:"¿Qué tratado puso fin a la Primera Guerra Mundial?",a:"Tratado de Versalles"},
+  {t:1,q:"¿Qué batalla marcó el final de Napoleón?",a:"Waterloo"},
+  {t:1,q:"¿Qué dinastía gobernaba China durante la construcción de la Ciudad Prohibida?",a:"Dinastía Ming"},
+  {t:1,q:"¿Quién fue el último emperador azteca?",a:"Moctezuma II / Cuauhtémoc (último real)"},
+  {t:1,q:"¿En qué fecha exacta se firmó el Tratado de Versalles?",a:"28 de junio de 1919"},
+  {t:1,q:"¿Cómo se llama el protagonista de la saga Metroid?",a:"Samus Aran"},
+  {t:1,q:"¿Qué compañía japonesa creó la saga Final Fantasy?",a:"Square (Square Enix actualmente)"},
+  {t:1,q:"¿En qué año se lanzó el primer Super Mario Bros.?",a:"1985"},
+  {t:1,q:"¿Cómo se llama el reino donde transcurre The Legend of Zelda?",a:"Hyrule"},
+  {t:1,q:"¿Qué estudio desarrolló Dark Souls y Elden Ring?",a:"FromSoftware"},
+  {t:1,q:"¿Cuál fue el primer videojuego comercial de la historia?",a:"Computer Space (1971)"},
+  {t:1,q:"¿Qué personaje es el antagonista principal de la saga Metal Gear?",a:"Liquid Snake / Revolver Ocelot"},
+  {t:1,q:"¿En qué ciudad ficticia transcurre Yakuza 0?",a:"Kamurocho (y Sotenbori)"},
+  {t:1,q:"¿Cómo se llama la espada legendaria de Cloud en Final Fantasy VII?",a:"Buster Sword"},
+  {t:1,q:"¿Qué estudio creó la saga Silent Hill originalmente?",a:"Team Silent (Konami)"},
+  {t:1,q:"¿Cómo se llama el caballo de Arthur Morgan en Red Dead Redemption 2?",a:"El que elija el jugador (por defecto: Boadicea)"},
+  {t:1,q:"¿Qué año salió el primer Resident Evil?",a:"1996"},
+  {t:1,q:"¿Cómo se llama el villano principal de Kingdom Hearts?",a:"Xehanort"},
+  {t:1,q:"¿Qué consola lanzó Sega en 1998 y fue su último intento en el mercado?",a:"Dreamcast"},
+  {t:1,q:"¿Cuál es el nombre real de Big Boss en Metal Gear?",a:"John / Jack (Naked Snake)"},
+  {t:1,q:"¿Qué compositor hizo la banda sonora de Undertale?",a:"Toby Fox"}
+];
+
+const PQ=[
+  {q:"¿Cuál es la comida favorita de Raúl?",a:"Solomillo en su punto con salsa roquefort"},
+  {q:"¿Cuál es su deporte favorito?",a:"Frontenis"},
+  {q:"¿Qué comida jamás probaría?",a:"Surströmming y pescados en general"},
+  {q:"Defínete en una palabra.",a:"Vacilón"},
+  {q:"¿Cuál es su género cinematográfico preferido?",a:"Fantasía"},
+  {q:"¿Qué tipo de cine odia?",a:"Musicales"},
+  {q:"¿Color favorito?",a:"Azul"},
+  {q:"¿Cuál es su película favorita?",a:"La trilogía de El Señor de los Anillos"},
+  {q:"¿Cuál era su Pokémon favorito?",a:"Jolteon"},
+  {q:"¿Qué videojuego le marcó?",a:"Bloodborne"}
+];
+
+// Pruebas actualizadas desde el documento
+const CH=[
+  // TIER 4 — Deshonra Menor (calentamiento)
+  {t:4,text:"🍞 Comer 1 rebanada de pan Bimbo en 1 minuto"},
+  {t:4,text:"🎨 Dibujo a ciegas: uno dibuja sin mirar, el otro adivina (alguien del grupo dice lo que debe dibujar)"},
+  {t:4,text:"🏋️ Plancha estática el mayor tiempo posible"},
+  {t:4,text:"🚶 Caminar al baño y volver, todo marcha atrás"},
+  {t:4,text:"🍝 Partir espaguetis con cara de enfadado convincente"},
+  {t:4,text:"🍺 Beber la cerveza entera al revés sin ayuda"},
+  {t:4,text:"☕ Beber un café con sal sin hacer ningún gesto"},
+  {t:4,text:"🍕 Pedir una pizza hawaiana en una pizzería italiana"},
+  {t:4,text:"🦵 Calambre en el gemelo: ir caminando y a Raúl le da un calambre cual jugador del Barça y el cómplice debe estirarle. Luego camina un rato cojeando."},
+
+  // TIER 3 — Deshonra Moderada
+  {t:3,text:"🇮🇹 Traducción simultánea italiano-español (del vídeo del supermercado)"},
+  {t:3,text:"🎈 Inflar un condón con la nariz hasta reventarlo"},
+  {t:3,text:"📱 Tono de llamada humillante durante el resto de la noche"},
+  {t:3,text:"🍆 Preguntar una indicación con un calabacín en el pantalón como si estuvieras erecto. (Solo Raúl lleva el calabacín; el cómplice debe hacer como si no pasara nada ante la víctima)"},
+  {t:3,text:"🚬 Fumar 2 pitillos a la vez"},
+  {t:3,text:"🌶️ Comer el picante más fuerte disponible sin beber"},
+  {t:3,text:"⛏️ 'Buscando en la mina' durante 1 minuto sin parar (excava en la nariz)"},
+  {t:3,text:"🍝 El atragantamiento enculador ante el público (2 minutos de duración mínima)"},
+
+  // TIER 2 — Gran Deshonra (público)
+  {t:2,text:"🛡️ Conseguir que alguien bese el escudo de la Fiore"},
+  {t:2,text:"📝 Papelitos YOU/ME: uno del grupo hace el dibujo, Raúl debe entregarlo y el cómplice debe estar al lado con sonrisa alelada, como si no supiera qué hay en el papel que entrega Raúl"},
+  {t:2,text:"🎵 Cantar el opening de Pokémon a voz en grito"},
+  {t:2,text:"💨 Mega eructo en el local más concurrido"},
+  {t:2,text:"💨 Flatulencias incontroladas: uno disimula y el otro debe hacer que se ata el cordón mientras emite sonidos de pedos sin que le detecten los demás"},
+  {t:2,text:"📞 Llamar a un contacto aleatorio y hablar 2 minutos. Cómplice elige aleatoriamente al contacto"},
+  {t:2,text:"🐾 Encuentro de pareja de animales (mismo animal, sonido y movimiento)"},
+  {t:2,text:"🎵 Cantar el opening de Digimon a voz en grito en italiano (vale en español o japonés)"},
+  {t:2,text:"👨‍🦲 Besar la calva de un desconocido + sonido de Hans Topo"},
+  {t:2,text:"😈 Practicar un exorcismo al cómplice ('¡Vade retro, Satanás!' debe aparecer en el acting)"},
+
+  // TIER 1 — Ignominia Suprema
+  {t:1,text:"🩸 Conseguir un tampón de una desconocida en menos de 10 minutos"},
+  {t:1,text:"💼 Vender un objeto de la calle por cualquier precio"},
+  {t:1,text:"🥜 Llevar testículos falsos visibles toda la ronda"},
+  {t:1,text:"👋 Conseguir 10 cachetadas en el culo de desconocidos"},
+  {t:1,text:"💋 Conseguir 5 besos de desconocidos"},
+  {t:1,text:"🤪 Actuar como si tuvieras Tourette o descontrol de impulsos durante 4 minutos"},
+  {t:1,text:"🫙 Probar surströmming (si lo escupes eres un pussy, pero no pasa nada)"},
+  {t:1,text:"🦗 Comer grillos (¿4 va bien? Pobre Pepito...)"},
+  {t:1,text:"👃 Oler tu propio aroma testicular y luego el del cómplice (métete la mano en los huevos 20 segundos, aspírala con fuerza y luego dásela a oler al cómplice)"}
+];
+
+// Penalizaciones actualizadas
+const pen={1:"1 chupito",2:"medio vaso",3:"2 sorbos",4:"1 sorbo"};
+// Penalización doble = penalización del tier SIGUIENTE (más duro). Si estamos en tier 1, son 2 chupitos.
+const dpen={1:"2 chupitos",2:"1 chupito",3:"medio vaso",4:"2 sorbos"};
+const tierClass={1:"pill-t1",2:"pill-t2",3:"pill-t3",4:"pill-t4"};
+
+let S={round:1,streak:0,curQ:null,curP:null,curCh:null,comp:null,dec:{r:null,c:null},usedQ:[],usedP:[],usedCh:[]};
+let toastT,saveIndT;
+
+const g=id=>document.getElementById(id);
+const show=id=>g(id).classList.remove("hidden");
+const hide=id=>g(id).classList.add("hidden");
+
+function toast(msg){
+  const tw=g("toast-wrap");
+  g("toast").textContent=msg;
+  tw.classList.add("show");
+  clearTimeout(toastT);
+  toastT=setTimeout(()=>tw.classList.remove("show"),2600);
+}
+
+// Tier changes every 2 correct answers:
+// 0-1 streak = tier 4, 2-3 = tier 3, 4-5 = tier 2, 6+ = tier 1
+function tier(){
+  if(S.streak>=6)return 1;
+  if(S.streak>=4)return 2;
+  if(S.streak>=2)return 3;
+  return 4;
+}
+
+function randUnused(arr,used){
+  let avail=arr.map((_,i)=>i).filter(i=>!used.includes(i));
+  if(!avail.length){used.length=0;avail=arr.map((_,i)=>i);}
+  const i=avail[Math.floor(Math.random()*avail.length)];used.push(i);return arr[i];
+}
+
+function tieredQ(){
+  const t=tier();
+  let cands=GQ.map((q,i)=>({q,i})).filter(x=>x.q.t===t&&!S.usedQ.includes(x.i));
+  if(!cands.length){
+    cands=GQ.map((q,i)=>({q,i})).filter(x=>x.q.t===t);
+    if(!cands.length)return randUnused(GQ,S.usedQ);
+    S.usedQ=S.usedQ.filter(i=>GQ[i].t!==t);
+  }
+  const pick=cands[Math.floor(Math.random()*cands.length)];S.usedQ.push(pick.i);return pick.q;
+}
+
+function updateStats(){
+  const t=tier();
+  g("st-round").textContent=S.round;
+  g("st-streak").textContent=S.streak+(S.streak>=4?" 🔥":"");
+  g("st-tier").textContent="Tier "+t;
+  g("st-pen").textContent=pen[t];
+  const b=g("tier-badge");
+  b.textContent="Tier "+t;
+  b.className="pill "+tierClass[t];
+}
+
+// Autosave silencioso tras cada acción
+function pjSave(manual){
+  try{
+    localStorage.setItem(SAVE_KEY,JSON.stringify(S));
+    if(manual){
+      const b=g("saved-badge");b.classList.add("show");
+      setTimeout(()=>b.classList.remove("show"),1800);
+      toast("💾 Partida guardada");
+    } else {
+      const ind=g("save-indicator");ind.classList.add("show");
+      clearTimeout(saveIndT);
+      saveIndT=setTimeout(()=>ind.classList.remove("show"),1400);
+    }
+  }catch(e){if(manual)toast("⚠️ No se pudo guardar");}
+}
+window.pjSave=pjSave;
+
+function pjLoad(){
+  try{
+    const raw=localStorage.getItem(SAVE_KEY);
+    if(!raw)return null;
+    return JSON.parse(raw);
+  }catch(e){return null;}
+}
+
+function checkSavedGame(){
+  const saved=pjLoad();
+  if(saved&&(saved.round>1||saved.streak>0||saved.usedQ.length>0)){
+    show("btn-resume");
+    g("btn-resume").textContent=`▶️ Continuar partida (Ronda ${saved.round} · Racha ${saved.streak})`;
+  }
+}
+
+window.pjResume=function(){
+  const saved=pjLoad();
+  if(!saved){toast("⚠️ No hay partida guardada");return;}
+  S=saved;
+  hide("s-intro");show("s-game");
+  if(S.curQ){
+    g("q-text").textContent=S.curQ.q;
+    g("q-answer").textContent=S.curQ.a;
+  } else {
+    g("q-text").textContent='Pulsa "Sacar pregunta" para continuar.';
+  }
+  hide("q-answer");g("btn-ans").textContent="👁 Mostrar respuesta";
+  hide("fail-box");hide("personal-box");hide("result-box");hide("btn-next");
+  updateStats();
+  toast("▶️ Partida restaurada — Ronda "+S.round);
+  window.scrollTo(0,0);
+};
+
+window.pjStart=function(){
+  hide("s-intro");show("s-game");pjDraw();updateStats();window.scrollTo(0,0);
+};
+
+window.pjDraw=function(){
+  S.curQ=tieredQ();
+  g("q-text").textContent=S.curQ.q;
+  g("q-answer").textContent=S.curQ.a;
+  hide("q-answer");g("btn-ans").textContent="👁 Mostrar respuesta";
+  hide("fail-box");hide("personal-box");hide("result-box");hide("btn-next");
+  S.curCh=null;S.comp=null;S.curP=null;S.dec={r:null,c:null};
+  updateStats();pjSave(false);
+};
+
+window.pjToggleAns=function(){
+  const hidden=g("q-answer").classList.contains("hidden");
+  hidden?show("q-answer"):hide("q-answer");
+  g("btn-ans").textContent=hidden?"🙈 Ocultar respuesta":"👁 Mostrar respuesta";
+};
+
+window.pjTogglePAns=function(){
+  const hidden=g("p-ans").classList.contains("hidden");
+  hidden?show("p-ans"):hide("p-ans");
+  g("btn-pans").textContent=hidden?"🙈 Ocultar respuesta":"👁 Mostrar respuesta";
+};
+
+function buildResult(title,body,extra){
+  g("result-box").innerHTML=`<div class="result-title">${title}</div><p>${body}</p>${extra||""}`;
+  show("result-box");
+  setTimeout(()=>g("result-box").scrollIntoView({behavior:"smooth",block:"center"}),100);
+}
+
+window.pjCorrect=function(){
+  S.streak++;
+  const newTier=tier();
+  const wasHarder=S.streak===2||S.streak===4||S.streak===6;
+  const title=wasHarder?"🔥 ¡Racha peligrosa!":"✨ Raúl acierta";
+  const body=wasHarder
+    ?"El tribunal aprieta. La siguiente pregunta será más cruel — Raúl se está volviendo sabio y eso no puede quedar impune."
+    :"El tribunal masculla con decepción. Esta vez la sabiduría le salva.";
+  buildResult(title,body,
+    `<div class="notice">Dificultad actual: <b>Tier ${newTier}</b> · Penalización: <b>${pen[newTier]}</b></div>`);
+  show("btn-next");updateStats();pjSave(false);
+  toast(wasHarder?"🔥 ¡Sube el tier! Racha: "+S.streak:"✨ ¡Acierta! Racha: "+S.streak);
+};
+
+function buildCompBtns(){
+  const el=g("comp-grid");el.innerHTML="";
+  PLAYERS.forEach(name=>{
+    const b=document.createElement("button");
+    b.className="btn btn-comp";b.textContent=name;b.dataset.name=name;
+    b.onclick=()=>{
+      el.querySelectorAll("button").forEach(x=>x.classList.remove("selected"));
+      b.classList.add("selected");
+      pjSelectComp(name);
+    };
+    el.appendChild(b);
+  });
+}
+
+window.pjFail=function(){
+  S.streak=0;buildCompBtns();show("fail-box");
+  hide("personal-box");hide("result-box");hide("btn-next");updateStats();
+  pjSave(false);
+  toast("💀 Raúl falla. A elegir cómplice...");
+  setTimeout(()=>g("fail-box").scrollIntoView({behavior:"smooth",block:"start"}),100);
+};
+
+function pjSelectComp(name){
+  S.comp=name;S.curCh=randUnused(CH,S.usedCh);
+  g("comp-notice").innerHTML=`<b>${name}</b> ha sido elegido como cómplice. El pobre aún no sabe si esto era una amistad o una trampa.`;
+  show("comp-notice");
+  const ct=g("ch-tier");ct.textContent="Tier "+S.curCh.t+" · "+pen[S.curCh.t];ct.className="pill "+tierClass[S.curCh.t];
+  g("ch-text").textContent=S.curCh.text;show("challenge-box");
+  resetDec();show("dec-box");pjSave(false);
+  toast("🎯 "+name+" elegido como cómplice");
+  setTimeout(()=>g("challenge-box").scrollIntoView({behavior:"smooth",block:"nearest"}),150);
+}
+
+window.pjRandComp=function(){
+  const name=PLAYERS[Math.floor(Math.random()*PLAYERS.length)];
+  const el=g("comp-grid");
+  el.querySelectorAll("button").forEach(b=>{
+    b.classList.remove("selected");
+    if(b.dataset.name===name)b.classList.add("selected");
+  });
+  pjSelectComp(name);
+};
+
+function resetDec(){
+  S.dec={r:null,c:null};
+  ["br-y","bc-y"].forEach(id=>{g(id).className="btn btn-success"});
+  ["br-n","bc-n"].forEach(id=>{g(id).className="btn btn-danger"});
+  g("d1").className="dot";g("d2").className="dot";
+  g("comp-label").style.opacity=".45";
+}
+
+window.pjDec=function(who,val){
+  S.dec[who]=val;
+  if(who==="r"){
+    const y=g("br-y"),n=g("br-n");
+    y.className="btn "+(val==="y"?"btn-sel-success":"btn-success btn-dimmed");
+    n.className="btn "+(val==="n"?"btn-sel-danger":"btn-danger btn-dimmed");
+    g("d1").className="dot dot-done";g("d2").className="dot dot-active";
+    g("comp-label").style.opacity="1";
+  }
+  if(who==="c"){
+    const y=g("bc-y"),n=g("bc-n");
+    y.className="btn "+(val==="y"?"btn-sel-success":"btn-success btn-dimmed");
+    n.className="btn "+(val==="n"?"btn-sel-danger":"btn-danger btn-dimmed");
+    g("d2").className="dot dot-done";
+  }
+  resolveIfReady();
+  pjSave(false);
+};
+
+function resolveIfReady(){
+  const r=S.dec.r,c=S.dec.c;
+  if(!r||!c||!S.curCh||!S.comp)return;
+  const t=S.curCh.t,name=S.comp;
+  if(r==="y"&&c==="y"){
+    buildResult("🤝 Ambos aceptan",`Raúl y ${name} afrontan la prueba como dos hombres sin amor propio.`,
+      `<div class="notice"><b>Prueba:</b> ${S.curCh.text}</div>`);
+    show("btn-next");return;
+  }
+  if(r==="n"&&c==="n"){
+    buildResult("🙅 Ambos se niegan",`Raúl paga doble penalización. ${name} queda libre, pero el tribunal le mira regular.`,
+      `<div class="notice"><b>Doble penalización de Raúl:</b> ${dpen[t]}</div>`);
+    show("btn-next");return;
+  }
+  if(r==="n"&&c==="y"){
+    buildResult("😤 Raúl se niega, cómplice acepta",`${name} se salva. Raúl paga doble penalización por cobarde y por hacer perder el tiempo al tribunal.`,
+      `<div class="notice"><b>Doble penalización de Raúl:</b> ${dpen[t]}</div>`);
+    show("btn-next");return;
+  }
+  if(r==="y"&&c==="n"){
+    buildResult("⚖️ Raúl acepta, cómplice no",`Raúl elige entre hacer la prueba o pagar ${pen[t]}. ${name} puede pagar igual o responder una pregunta personal sobre Raúl.`,
+      `<div class="notice"><b>Prueba:</b> ${S.curCh.text}</div>`);
+    launchPersonal();show("btn-next");
+  }
+}
+
+function launchPersonal(){
+  S.curP=randUnused(PQ,S.usedP);
+  g("p-q").textContent=S.curP.q;g("p-ans").textContent=S.curP.a;
+  hide("p-ans");g("btn-pans").textContent="👁 Mostrar respuesta";show("personal-box");
+}
+
+window.pjPersonal=function(ok){
+  const extra=ok
+    ?`<div class="notice" style="margin-top:12px"><b>${S.comp}</b> acierta y puede mandar beber a otra persona. El tribunal lo aprueba con una sonrisa indecente.</div>`
+    :`<div class="notice" style="margin-top:12px"><b>${S.comp}</b> falla y paga penalización: <b>${pen[S.curCh?S.curCh.t:4]}</b></div>`;
+  g("result-box").innerHTML+=extra;
+  pjSave(false);
+  toast(ok?"✅ "+S.comp+" acierta la personal":"❌ "+S.comp+" falla la personal");
+};
+
+window.pjNext=function(){S.round++;pjDraw();window.scrollTo({top:0,behavior:"smooth"});};
+
+window.pjReset=function(){
+  if(!confirm("¿Reiniciar todo el juicio? Se perderá el progreso actual."))return;
+  S={round:1,streak:0,curQ:null,curP:null,curCh:null,comp:null,dec:{r:null,c:null},usedQ:[],usedP:[],usedCh:[]};
+  try{localStorage.removeItem(SAVE_KEY);}catch(e){}
+  hide("s-game");show("s-intro");hide("btn-resume");
+  toast("🔄 Juicio reiniciado");
+  window.scrollTo(0,0);
+};
+
+window.pjShare=function(){
+  const url=window.location.href;
+  if(navigator.share){navigator.share({title:"El Juicio del Pinchaina",text:"⚔️ El Juicio del Pinchaina te espera:",url}).catch(()=>{});return;}
+  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(url).then(()=>toast("📋 Enlace copiado"));return;}
+  prompt("Copia este enlace:",url);
+};
+
+// Check for saved game on load
+checkSavedGame();
+})();
+</script>
+</body>
+</html>
